@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: move-visualier
+  m_Shader: {fileID: 4800000, guid: 6859c4f971c95ce4d9920bfae4e162f5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Bishop:
+        m_Texture: {fileID: 2800000, guid: f0c3ce5ba096ab84888814f2451152c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _King:
+        m_Texture: {fileID: 2800000, guid: be7d73376bfad4c40a0f11c142a2909d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Knight:
+        m_Texture: {fileID: 2800000, guid: b4a5b05037783c242b3f7a6b148638f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pawn:
+        m_Texture: {fileID: 2800000, guid: 0dc79679c041bd4478053a55639f0efc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PawnAttack:
+        m_Texture: {fileID: 2800000, guid: c86b8844e0ddf614aaa68dbd3ce072b2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Queen:
+        m_Texture: {fileID: 2800000, guid: 9c09937e75b115a469d733b2237629fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Rook:
+        m_Texture: {fileID: 2800000, guid: 8153a6d4fdd75ba48a3633ba35f548a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Piece: 0
+    m_Colors:
+    - _Color: {r: 0, g: 1, b: 0.14352077, a: 0.16862746}
+    - _Color2: {r: 0, g: 0.9793539, b: 1, a: 0.1764706}
+    - _Vector: {r: 0, g: 0, b: 0, a: 0}

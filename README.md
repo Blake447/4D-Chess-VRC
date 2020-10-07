@@ -1,5 +1,5 @@
 # 4D-Chess-VRC
-This package is a 4D Chess board for utilization in VRChat through Udon and UdonSharp. The game itself extends the rules of traditional 2D chess to 4D by restating the move sets of the original game in terms of combinations of forward and lateral directions, and adds a hyperforward (w axis) and hyperlateral (z axis) direction, allowing for either, both, or neither to be chosen as the forward/lateral direction used to generate the original movesets. It also makes the board 4x4x4x4 as opposed to the traditional 8x8
+This package is a 4D Chess board for utilization in VRChat through Udon and UdonSharp. The game itself extends the rules of traditional 2D chess to 4 spatial dimensions by restating the move sets of the original game in terms of combinations of forward and lateral directions, and adds a hyperforward (w axis) and hyperlateral (z axis) direction, allowing for either, both, or neither to be chosen as the forward/lateral direction used to generate the original movesets. It also makes the board 4x4x4x4 as opposed to the traditional 8x8
 
 ## Requirements:
 

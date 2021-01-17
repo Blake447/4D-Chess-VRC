@@ -59,10 +59,10 @@ public class ChessPiece : UdonSharpBehaviour
     // Uncomment this to make it so that the pieces snap every frame. Drops FPS to about 15 in unity editor
     // so DO NOT leave it uncommented for upload.
 
-    public void Update()
-    {
-        PerformSnap();
-    }
+    //public void Update()
+    //{
+    //    PerformSnap();
+    //}
 
 
     /////////////////////////////////////////////////
@@ -157,8 +157,8 @@ public class ChessPiece : UdonSharpBehaviour
         Vector3 vec = incoming - root;
 
         // parsing to integer acts as a floor value, so we'll divde by some offsets to get these two values.
-        float z_co = (int)(Vector3.Dot(vec, up) / z_offset);
-        float w_co = (int)((Vector3.Dot(vec, fw) - xy_offset) / w_offset);
+        int z_co = (int)(Vector3.Dot(vec, up) / z_offset + 0.5f);
+        int w_co = (int)((Vector3.Dot(vec, fw) - xy_offset) / w_offset + 0.5f);
 
         // Project the pieces coordinate into the zeroth cube
         Vector3 projection = vec - fw * w_co * w_offset;
@@ -178,17 +178,20 @@ public class ChessPiece : UdonSharpBehaviour
         projection = (projection - 1.5f * (rt + fw) * xy_offset) / scaler + 1.5f * (rt + fw) * xy_offset;
 
         // Snap the x and y coordinates
-        float x_co = (int)(Vector3.Dot(projection, rt) / xy_offset);
-        float y_co = (int)(Vector3.Dot(projection, fw) / xy_offset);
+        int x_co = (int)(Vector3.Dot(projection, rt) / xy_offset + 0.5f);
+        int y_co = (int)(Vector3.Dot(projection, fw) / xy_offset + 0.5f);
 
         // get all the coordinates into one vector4, and update it into the global variable
         coordinate = new Vector4(x_co, y_co, z_co, w_co);
 
         // Determine how far away we are from the center of the board
         Vector4 snapping = coordinate - new Vector4(1f, 1f, 1f, 1f) * 1.5f;
-        
+
         // Check the magnitude of each coordinates offset, to determine whether or not we are on the board (i.e. have a valid snap)
-        bool isSnappable = (Mathf.Abs(snapping.x) < 2.0f && Mathf.Abs(snapping.y) < 2.0f && Mathf.Abs(snapping.z) < 2.0f && Mathf.Abs(snapping.w) < 2.0f);
+        bool isSnappable =  (0 <= coordinate.x && coordinate.x <= 3) &&
+                            (0 <= coordinate.y && coordinate.y <= 3) &&
+                            (0 <= coordinate.z && coordinate.z <= 3) &&
+                            (0 <= coordinate.w && coordinate.w <= 3);
 
         // If we have a valid snap
         if (isSnappable)
@@ -239,8 +242,10 @@ public class ChessPiece : UdonSharpBehaviour
         // W offset is likewise easy, just apply a fixed offset
         Vector3 w = fw * coordinate.w * w_offset;
 
+        Vector4 position_from_coordinate = root + center + z + un_center + xy + w;
+        
         // Now lets go through the whole process. Move to center, move up, uncenter, and apply the rest of the coordinates
-        return root + center + z + un_center + xy + w;
+        return position_from_coordinate;
 
         // There we go. Now once the values are fine tuned, all the hypersquares should line themselves up based on their coordinates.
     }

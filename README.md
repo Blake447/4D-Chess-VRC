@@ -6,7 +6,7 @@ This package is a 4D Chess board for utilization in VRChat through Udon and Udon
 1. Unity 2018.4.20f1 or greater
 2. VRCSDK3 with Udon: https://vrchat.com/home/download
 3. Merlin's Udon Sharp compiler: https://github.com/MerlinVR/UdonSharp/releases
-	- Note: Udon Sharp v0.18.0 causes some compiler errors, v0.15.1 is tested and works. The latest release is expected to work fine, however it is currently untested.
+	- Note: Udon Sharp v0.19.0 is tested an works correctly. Older versions may handle int casts differently. In older versions, explicit integer casts may be treated as rounding operations instead of truncation, leading to the snap function breaking, upon which the visualizer depends.
 
 ## Installation:
 
